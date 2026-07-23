@@ -1,0 +1,143 @@
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(234, 241, 232, 0.82));
+  box-shadow: var(--shadow);
+}
+
+.app-header h1,
+.resource-header h1 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.api-note {
+  max-width: 420px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.app-nav {
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.app-nav .nav-link {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  font-weight: 650;
+}
+
+.app-nav .nav-link.active,
+.app-nav .nav-link:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.resource-panel {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
+}
+
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.record-count {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.octofit-table {
+  margin: 0;
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: rgba(43, 93, 76, 0.08);
+}
+
+.octofit-table th {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.octofit-table td,
+.octofit-table th {
+  border-color: var(--border);
+}
+
+.status-message,
+.empty-state {
+  margin: 0;
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+}
+
+.error-message {
+  color: #9f2525;
+  border-color: rgba(159, 37, 37, 0.35);
+  background: rgba(159, 37, 37, 0.06);
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 16px;
+  }
+
+  .app-header,
+  .resource-header {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .api-note {
+    text-align: left;
+  }
+
+  .app-nav .nav-link {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+  }
+
+  .resource-panel,
+  .app-header {
+    padding: 20px;
+  }
+}

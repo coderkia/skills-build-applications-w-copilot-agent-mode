@@ -8,6 +8,12 @@ export const apiEnvironmentMessage = codespaceName
   ? `Using Codespaces API ${apiBaseUrl}`
   : 'VITE_CODESPACE_NAME is not set; using local API http://localhost:8000/api'
 
+export function getApiEndpoint(component) {
+  return codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/${component}/`
+    : `http://localhost:8000/api/${component}/`
+}
+
 const collectionKeys = ['results', 'items', 'data', 'docs']
 
 export function normalizeCollection(payload) {
@@ -23,8 +29,8 @@ export function normalizeCollection(payload) {
   return key ? payload[key] : []
 }
 
-export async function fetchCollection(component) {
-  const response = await fetch(`${apiBaseUrl}/${component}/`)
+export async function fetchCollection(endpointUrl) {
+  const response = await fetch(endpointUrl)
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`)

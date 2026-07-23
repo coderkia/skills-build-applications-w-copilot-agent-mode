@@ -1,5 +1,9 @@
 import ResourcePage from './ResourcePage'
 
+const workoutsEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+  : 'http://localhost:8000/api/workouts/'
+
 const columns = [
   { key: 'title', label: 'Workout' },
   { key: 'difficulty', label: 'Difficulty' },
@@ -8,7 +12,7 @@ const columns = [
 ]
 
 function Workouts() {
-  return <ResourcePage columns={columns} endpoint="workouts" eyebrow="Suggestions" title="Workouts" />
+  return <ResourcePage columns={columns} endpoint={workoutsEndpoint} eyebrow="Suggestions" title="Workouts" />
 }
 
 export default Workouts
